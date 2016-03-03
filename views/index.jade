@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	.container(ng-controller="WallController as wall")
+		table.table.table-bordered
+			thead
+				tr
+					th Name
+					th Grade
+					th Description
+					th Setter
+			tbody
+				tr(ng-repeat="route in wall.routes")
+					td {{route.name}}
+					td {{route.grade}}
+					td {{route.description}}
+					td {{route.setter}}
+		form(name = "routeForm", ng-controller ="RouteController as routeCtrl" ng-submit="routeCtrl.addRoute(wall)")
+			input(type="text" placeholder="Name" ng-model="routeCtrl.route.name")
+			input(type="number" min="0" placeholder="Grade" ng-model="routeCtrl.route.grade")
+			input(type="text" placeholder="Description" ng-model="routeCtrl.route.description")
+			input(type="text" placeholder="Setter" ng-model="routeCtrl.route.setter")
+			button.btn.btn-primary.form-submit Submit
+			blockquote
+				| Name: {{routeCtrl.route.name}}
+				br
+				| Grade: {{routeCtrl.route.grade}} 
+				br
+				| Description: {{routeCtrl.route.description}}
+				br
+				| Setter: {{routeCtrl.route.setter}} 
