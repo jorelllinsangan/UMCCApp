@@ -1,1 +1,59 @@
-<!DOCTYPE html><html lang="en"><head><title>UMCC</title></head><body><h1>University of Manitoba Climbing Club</h1><div><button type="button">Schedule</button><button type="button">Routes</button><button type="button">Events</button></div></body></html>
+<!DOCTYPE html>
+<html ng-app="umcc">
+	<head>
+		<title>UMCC APP</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"> </script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="app.js"></script>
+		
+	</head>
+	<body>
+	<!-- First I want a list of all the routes and a form to submit a new route -->
+		<div class="container" ng-controller="ProblemController as problem">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Grade</th>
+						<th>Description</th>
+						<th>Setter</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "route in problem.routes">
+						<td>{{route.name}}</td>
+						<td>{{route.grade}}</td>
+						<td>{{route.description}}</td>
+						<td>{{route.setter}}</td>
+					</tr>
+				</tbody>
+			</table>
+				
+			<form = "routeForm" ng-controller="RouteController as routeCtrl" ng-submit= "routeCtrl.addRoute(problem)">
+				<input type="text" placeholder="Name" ng-model="routeCtrl.route.name"></input>
+				<input type="number"  min="0"placeholder="Grade" ng-model="routeCtrl.route.grade"></input>
+				<input type="text" placeholder="description" ng-model="routeCtrl.route.description"></input>
+				<input type="text" placeholder="setter" ng-model="routeCtrl.route.setter"></input>
+				<button class="btn btn-primary form-submit">Submit</button>
+				<blockquote>
+					name: {{routeCtrl.route.name}} <br/>
+					grade: {{routeCtrl.route.grade}} <br/>
+					description: {{routeCtrl.route.description}} <br/>
+					setter: {{routeCtrl.route.setter}} <br/>
+
+				</blockquote>
+			</form>
+		</div>
+
+
+		
+
+
+	</body>
+
+
+</html>
