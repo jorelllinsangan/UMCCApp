@@ -13,7 +13,7 @@
 	</head>
 	<body>
 	<!-- First I want a list of all the routes and a form to submit a new route -->
-		<div class="container" ng-controller="ProblemController as problem">
+		<div class="container" ng-controller="WallController as wall">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -24,7 +24,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat = "route in problem.routes">
+					<tr ng-repeat = "route in wall.routes">
 						<td>{{route.name}}</td>
 						<td>{{route.grade}}</td>
 						<td>{{route.description}}</td>
@@ -33,7 +33,7 @@
 				</tbody>
 			</table>
 				
-			<form = "routeForm" ng-controller="RouteController as routeCtrl" ng-submit= "routeCtrl.addRoute(problem)">
+			<form = "routeForm" ng-controller="RouteController as routeCtrl" ng-submit= "routeCtrl.addRoute(wall)">
 				<input type="text" placeholder="Name" ng-model="routeCtrl.route.name"></input>
 				<input type="number"  min="0"placeholder="Grade" ng-model="routeCtrl.route.grade"></input>
 				<input type="text" placeholder="description" ng-model="routeCtrl.route.description"></input>

@@ -1,7 +1,7 @@
 (function() {
 	var app = angular.module('umcc', []);
 
-	app.controller('ProblemController', function() {
+	app.controller('WallController', function() {
 		this.routes = [
 			{
 				name: "Trump Tower",
@@ -21,7 +21,7 @@
 	app.controller("RouteController", function() {
 		this.route = {};
 
-		this.addRoute = function(problem) {
+		this.addRoute = function(wall) {
 			problem.routes.push(this.route);
 			this.route = {};
 		};
